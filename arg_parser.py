@@ -32,7 +32,7 @@ def arg_parser():
 		help='Size of hidden layers.')
 	parser.add_argument(
 		'--optimizer', 
-		default='adam', 
+		default='sgd', 
 		type=str,
 		help='Optimizer.')
 	parser.add_argument(
@@ -245,17 +245,17 @@ def arg_parser():
 		help='True if to save files.')
 	parser.add_argument(
 		'--eval_freq', 
-		default=1, 
+		default=10, 
 		type=int,
 		help='frequency of evaluating model performance (every "eval_freq" rounds).')
 	parser.add_argument(
 		'--write_freq', 
-		default=1, 
+		default=10, 
 		type=int,
 		help='frequency of writing results to file (every "write_freq" rounds).')
 	parser.add_argument(
 		'--copy_file_freq', 
-		default=1, 
+		default=30000, 
 		type=int,
 		help='frequency of copying results to file.')
 	parser.add_argument(
