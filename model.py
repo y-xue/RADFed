@@ -32,7 +32,7 @@ class LogisticRegression(object):
 	def set_learning_rate(self, learning_rate):
 		self.learning_rate = learning_rate
 
-	def build_graph(self, optimizer='adam', mu=0, use_locking=False):
+	def build_graph(self, optimizer='adam'):
 		graph_level_seed = 1
 		tf.reset_default_graph()
 		tf.set_random_seed(graph_level_seed)
@@ -141,7 +141,7 @@ class FFN(object):
 			)
 			return tf.matmul(input_layer, w) + b
 
-	def build_graph(self, optimizer='adam', mu=0, use_locking=False):
+	def build_graph(self, optimizer='adam'):
 		tf.reset_default_graph()
 		tf.set_random_seed(1)
 
@@ -234,7 +234,7 @@ class MobilenetV2(object):
 	def set_learning_rate(self, learning_rate):
 		self.learning_rate = learning_rate
 		
-	def build_graph(self, optimizer='adam', mu=0, use_locking=False):
+	def build_graph(self, optimizer='adam'):
 		tf.reset_default_graph()
 		self.graph = tf.Graph()
 
@@ -349,7 +349,7 @@ class StackedLSTM(object):
 	def set_learning_rate(self, learning_rate):
 		self.learning_rate = learning_rate
 		
-	def build_graph(self, optimizer='sgd', mu=0, use_locking=False, seed=1):
+	def build_graph(self, optimizer='sgd', seed=1):
 		tf.reset_default_graph()
 		tf.set_random_seed(seed)
 

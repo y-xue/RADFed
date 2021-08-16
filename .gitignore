@@ -1,2 +1,3 @@
 data/
 mobilenet_checkpoints/
+__pycache__/

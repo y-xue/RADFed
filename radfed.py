@@ -264,13 +264,8 @@ def train():
 		prev_max_val_score = float(re.findall(r'prev_max_val.*: (0\.\d+)',s)[0])
 		
 	else:
-		if os.path.isfile(FLAGS.pre_train_weights_fn):
-			current_weights = ray.put(np.loadtxt(
-				FLAGS.pre_train_weights_fn, delimiter=','))
-			print('pre_train_weights loaded.')
-		else:
-			current_weights = ray.get(workers[0].get_weights.remote())
-			ps.set_weights(current_weights)
+		current_weights = ray.get(workers[0].get_weights.remote())
+		ps.set_weights(current_weights)
 
 		client_training_score_history = [[] for _ in range(num_selected_tr_clients)] #range(num_tr_clients)]
 		client_validation_score_history = [[] for _ in range(num_val_clients)]

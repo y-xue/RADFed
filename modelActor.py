@@ -98,7 +98,7 @@ class ModelActor(object):
 					num_classes=self.FLAGS.num_classes, 
 					n_hidden=256)
 
-			self.model.build_graph(optimizer=self.FLAGS.optimizer, mu=self.FLAGS.mu, use_locking=self.FLAGS.use_locking)
+			self.model.build_graph(optimizer=self.FLAGS.optimizer)
 
 			config = tf.ConfigProto(log_device_placement=self.FLAGS.log_device_placement)
 			config.gpu_options.allow_growth = True
