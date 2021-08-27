@@ -30,28 +30,29 @@ Shakespeare
 
 ## Train RADFed-IS
 
-Set `--return_grad_norm=2` and --ISalpha=<ISalpha>
+Set `--return_grad_norm=2` and `--ISalpha=<IS_alpha>`
 
 
 ## Generate the non-IID data above from original datasets
 
 Covertype: download [raw data](https://www.dropbox.com/sh/3ca3j7hz6r09d7v/AABDA3x_25T9qrZ_XozDu_dLa?dl=0), then run
 
-COVCLS
+COVCLS:
 `python distribute_data.py --data_path=<path_to_measures> --client_data_path=<dist_path> --num_clients=100  --distributing=class --client_te_ratio=0.1 --client_val_ratio=0.1 --is_dirichlet --num_classes=2 --seed=1020 --alpha=1 --beta=0.1 --searching_step_pct=0.0002 --lower_ratio=0.1 --upper_ratio=0.2 --n_eval_folds=5`
 
-COVFEAT
+COVFEAT:
 `python distribute_data.py --data_path=<path_to_measures> --client_data_path=<dist_path> --num_clients=100 --feature_non_iid --distributing=class --client_te_ratio=0.1 --client_val_ratio=0.1 --is_dirichlet --num_classes=2 --seed=1122 --alpha=1 --beta=0.1 --theta_t=0.1 --searching_step_pct=0.0002 --lower_ratio=0.1 --upper_ratio=0.2 --n_eval_folds=5`
 
 MNIST: download [raw data](https://www.dropbox.com/sh/lfo460jc6yeycyb/AAAOR4DgzqUz9LASyyMFRfkka?dl=0), then run
 
-MNIST-1
+MNIST-1:
 `python distribute_data.py --data_path=<path_to_measures> --client_data_path=<dist_path> --num_clients=100  --distributing=class --client_te_ratio=0.1 --client_val_ratio=0.1 --is_dirichlet --num_classes=10 --seed=10 --alpha=1 --beta=1 --searching_step_pct=0.0002 --lower_ratio=0.1 --upper_ratio=0.2 --n_eval_folds=5`
 
-MNIST-01
+MNIST-01:
 `python distribute_data.py --data_path=<path_to_measures> --client_data_path=<dist_path> --num_clients=100  --distributing=class --client_te_ratio=0.1 --client_val_ratio=0.1 --is_dirichlet --num_classes=10 --seed=233 --alpha=1 --beta=0.1 --searching_step_pct=0.0002 --lower_ratio=0.1 --upper_ratio=0.2 --n_eval_folds=5`
 
 Cifar10: download [raw data](https://www.dropbox.com/sh/ydjzhrkj6kl08tp/AAAD1zX8kxK-_fL1FNhfyxOqa?dl=0), then run
+
 `python distribute_data.py --data_path=<path_to_measures> --client_data_path=<dist_path> --num_clients=100  --distributing=class --client_te_ratio=0.1 --client_val_ratio=0.1 --is_dirichlet --num_classes=10 --seed=2366 --alpha=1 --beta=0.1 --searching_step_pct=0.0002 --lower_ratio=0.1 --upper_ratio=0.2 --n_eval_folds=5`
 
 Shakespeare: download [raw data & scripts](https://www.dropbox.com/sh/88cw9h1mp1rafik/AACNGcrZZ0ODqY-OqmmFNjAma?dl=0), then run preprocess.ipynb
