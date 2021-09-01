@@ -8,25 +8,30 @@ Non-IID datasets used in paper: [COVFEAT](https://www.dropbox.com/s/dfy32fuc8cuq
 
 ## Train RADFed
 
+Requirements
+- Python=3.6
+- Ray=0.6.4
+- Tensorflow=1.14.0
+- PyTorch=1.4.0
+- cvxopt
+
 Experiments were performed on Linux with GeForce RTX 2080 Ti (11GB).
 
 Covertype
 
-`python radfed.py --modelname=FFN --score=acc --num_round=1000 --num_clients=100 --num_shuffle_round=22 --client_data_path=data/covtype/100_client_data_dirichlet_noniid_cat_features_classes_random_qp_alpha1_lambda0.1_theta0.1_5folds_seed1122 --out_path=out/test_run --num_classes=2 --feature_size=49 --save_file --num_tr_workers=2 --num_gpus=0 --gpu_ids=0 --learning_rate=0.2 --batch_size=256`
-
+`python radfed.py --modelname=FFN --score=F1 --num_round=1000 --num_clients=100 --num_shuffle_round=20 --client_data_path=data/covtype2/100_client_data_dirichlet_noniid_cat_features_classes_random_qp_alpha1_lambda0.1_theta0.1_5folds_seed1122 --out_path=out/test_run --num_classes=2 --feature_size=49 --hidden_size=64 --save_file --eval_freq=1 --re_init_client_freq=500 --num_tr_workers=2 --num_gpus=0 --gpu_ids=0 --learning_rate=0.2 --batch_size=256 --normalizing --num_normalized_features=10 `
 
 MNIST
 
-`python radfed.py --modelname=FFN --score=acc --num_round=30 --num_clients=100 --num_shuffle_round=15 --client_data_path=data/mnist/100_client_data_dirichlet_noniid_classes_random_qp_alpha1_beta0.1_0.1-0.2opt_loss_search0.002_piter5e5_biter5e5_5folds_seed233 --out_path=out/test_run --num_classes=10 --feature_size=784 --save_file --num_tr_workers=2 --num_gpus=0 --gpu_ids=0 --learning_rate=0.002 --batch_size=10 --num_local_epochs=20`
+`python radfed.py --modelname=FFN --score=acc --num_round=30 --num_clients=100 --num_shuffle_round=15 --client_data_path=data/mnist/100_client_data_dirichlet_noniid_classes_random_qp_alpha1_beta0.1_0.1-0.2opt_loss_search0.002_piter5e5_biter5e5_5folds_seed233 --out_path=out/test_run --num_classes=10 --feature_size=784 --hidden_size=200 --save_file --eval_freq=1 --re_init_client_freq=500 --num_tr_workers=2 --num_gpus=0 --gpu_ids=0 --learning_rate=0.002 --batch_size=10 --num_local_epochs=20`
 
 Cifar10
 
-`python radfed.py --modelname=mbnt --score=acc --num_round=100 --num_clients=100 --num_shuffle_round=15 --client_data_path=data/cifar10/100_client_data_dirichlet_noniid_classes_random_qp_alpha1_beta0.1_0.1-0.2opt_loss_piter5e5_biter5e5_seed2366 --out_path=out/test_run --num_classes=10 --save_file --num_tr_workers=2 --num_gpus=1 --gpu_ids=0 --learning_rate=0.2 --batch_size=16`
+`python radfed.py --modelname=mbnt --score=acc --num_round=100 --num_clients=100 --num_shuffle_round=15 --client_data_path=data/cifar10/100_client_data_dirichlet_noniid_classes_random_qp_alpha1_beta0.1_0.1-0.2opt_loss_piter5e5_biter5e5_seed2366 --out_path=out/test_run --num_classes=10 --save_file --eval_freq=200 --re_init_client_freq=200 --num_tr_workers=2 --num_gpus=1 --gpu_ids=0 --learning_rate=0.2 --batch_size=16`
 
 Shakespeare
 
-`python radfed.py --modelname=lstm --score=acc --num_round=100 --num_clients=143 --num_shuffle_round=15 --client_data_path=data/shakespeare/143_client_data_seed245 --out_path=out/test_run --num_classes=80 --save_file --num_tr_workers=2 --num_gpus=1 --gpu_ids=0 --learning_rate=0.5 --batch_size=256`
-
+`python radfed.py --modelname=lstm --score=acc --num_round=100 --num_clients=143 --num_shuffle_round=15 --client_data_path=data/shakespeare/143_client_data_seed245 --out_path=out/test_run --num_classes=80 --save_file --eval_freq=10 --re_init_client_freq=10 --num_tr_workers=2 --num_gpus=1 --gpu_ids=0 --learning_rate=0.5 --batch_size=256  --val_batch_size=4096`
 
 ## Train RADFed-IS
 
