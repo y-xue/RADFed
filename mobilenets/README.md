@@ -1,5 +1,7 @@
 # MobileNet
 
+Adapted from the official implementation of [MobileNet](https://github.com/tensorflow/models/tree/master/research/slim/nets/mobilenet). Unnecessary libraries to be imported are removed.
+
 This folder contains building code for
 [MobileNetV2](https://arxiv.org/abs/1801.04381) and
 [MobilenetV3](https://arxiv.org/abs/1905.02244) networks. The architectural

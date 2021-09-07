@@ -6,8 +6,6 @@ Non-IID datasets used in paper: [COVFEAT](https://www.dropbox.com/s/dfy32fuc8cuq
 
 Download [Mobilenet V2 checkpoint](https://storage.googleapis.com/mobilenet_v2/checkpoints/mobilenet_v2_1.0_224.tgz) from its [official github repo](https://github.com/tensorflow/models/tree/master/research/slim/nets/mobilenet) and save it in `mobilenet_checkpoints` directory.
 
-Clone [Mobilenet V2 repo](https://github.com/tensorflow/models/tree/master/research/slim/nets/mobilenet) and save it in `mobilenets` directory.
-
 ## Train RADFed
 
 Requirements
