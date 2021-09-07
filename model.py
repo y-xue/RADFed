@@ -16,6 +16,7 @@ import random
 from language_utils import letter_to_vec, word_to_indices
 
 try:
+	sys.path.append('mobilenets')
 	import mobilenet_v2
 except:
 	print('not importing mobilenet_v2')
