@@ -2,4 +2,5 @@
 .gitignore
 data/
 mobilenet_checkpoints/
+mobilenets/
 __pycache__/
